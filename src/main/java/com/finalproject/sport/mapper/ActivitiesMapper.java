@@ -16,7 +16,7 @@ public class ActivitiesMapper {
                 .append("load", activity.getLoad());
     }
 
-    private Activity documentToActivity(Document document) {
+    public Activity documentToActivity(Document document) {
         String name = document.getString("name");
         int duration = document.getInteger("duration");
         Date date = document.getDate("date");
