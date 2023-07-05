@@ -7,7 +7,10 @@ import org.bson.Document;
 
 public interface UserController {
     String saveUser(User user);
+
    // MongoCollection<Document> getAll();
+
+    void updateUser(Document query, Document newValue);
 
     User getUser();
 }

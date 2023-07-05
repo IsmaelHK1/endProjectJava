@@ -2,6 +2,7 @@ package com.finalproject.sport.controller;
 
 import com.finalproject.sport.model.User;
 import com.finalproject.sport.repository.UsersRepository;
+import org.bson.Document;
 
 public class UserControllerImpl implements UserController {
     UsersRepository usersRepository;
@@ -15,7 +16,12 @@ public class UserControllerImpl implements UserController {
         return this.usersRepository.create(user);
     }
 
-     @Override
+    @Override
+    public void updateUser(Document query, Document newValue) {
+        this.usersRepository.update( query, newValue);
+    }
+
+    @Override
     public User getUser() {
         return this.usersRepository.read();
          }

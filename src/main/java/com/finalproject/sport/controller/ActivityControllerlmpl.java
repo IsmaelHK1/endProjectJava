@@ -30,10 +30,7 @@ public class ActivityControllerlmpl implements ActivityController {
         }
 
         @Override
-        //public List<Activity> selectOneWeek(){
-        //
-        //    return <new Activity()>
-        //}
+
         public void selectOneWeek(){
 
         }

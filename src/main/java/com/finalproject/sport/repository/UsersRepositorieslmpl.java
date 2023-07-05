@@ -7,7 +7,6 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.result.InsertOneResult;
-import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
 
@@ -24,6 +23,7 @@ public class UsersRepositorieslmpl implements UsersRepository{
         return database.getCollection(collectionName);
     }
 
+
     @Override
     public String create(User user){
         MongoCollection<Document> collection = connect();
@@ -32,13 +32,10 @@ public class UsersRepositorieslmpl implements UsersRepository{
     }
 
     @Override
-    public  String update(Document query, Document newValue){
-        Document updateObject = new Document();
-        updateObject.put("$set", newValue);
+    public void update(Document query, Document newValue){
 
         MongoCollection<Document> collection = connect();
-        UpdateResult result = collection.updateOne(query, updateObject);
-        return Objects.requireNonNull(result.getUpsertedId()).toString();
+        collection.replaceOne(query, newValue);
     }
 
     @Override

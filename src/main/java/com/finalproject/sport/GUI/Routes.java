@@ -27,4 +27,11 @@ public class Routes {
         window.add(formActivity.panelFormActivity(window));
         window.setVisible(true);
     }
+
+    public void updateInfoUser() {
+        UserControllerImpl userController = new UserControllerImpl(new UsersRepositorieslmpl());
+        UpdateInfoUser updateInfoUser = new UpdateInfoUser(userController);
+        window.add(updateInfoUser.panelUpdateInfoUser(window));
+        window.setVisible(true);
+    }
 }
